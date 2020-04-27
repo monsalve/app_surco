@@ -21,6 +21,7 @@ import Vuetify from "../plugins/vuetify"
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('app-container', require('./components/AppContainerComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
