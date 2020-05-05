@@ -33,12 +33,13 @@
                         <v-list-item-action> <v-icon>{{ item.icon }}</v-icon> </v-list-item-action>
                         <v-list-item-content> <v-list-item-title> {{ item.text }} </v-list-item-title> </v-list-item-content>
                     </v-list-item>
-                    <v-list-item v-else :key="item.text" link @click='salir'>                        
+                    <v-list-item v-else :key="item.text" link @click='menu = item.menu'>                        
                         <v-list-item-action> <v-icon>{{ item.icon }}</v-icon> </v-list-item-action>
                         <v-list-item-content> <v-list-item-title> {{ item.text }} </v-list-item-title> </v-list-item-content>
                     </v-list-item>
                 </template>
             </v-list>
+            
         </v-navigation-drawer>
 
         <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="blue darken-3" dark >
@@ -53,7 +54,13 @@
         </v-app-bar>
         <v-content>
             <v-container class="fill-height" fluid>
-                xxxxxxx
+                <div v-if="menu == '1'"> Estudiantes</div>
+                <div v-if="menu == '2'"> Inscripciones</div>
+                <div v-if="menu == '3'"> Tutores</div>
+                <div v-if="menu == '4'"> Cursos</div>
+                <div v-if="menu == '5'"> Empresas</div>
+                <div v-if="menu == '6'"> Mi cuenta</div>
+                <div v-if="menu == ''"> Usuarios</div>
             </v-container>
         </v-content>
         <v-btn bottom color="pink" dark fab fixed right @click="dialog = !dialog"><v-icon>mdi-plus</v-icon></v-btn>
@@ -115,18 +122,19 @@
       source: String,
     },
     data: () => ({
+        menu: '0',         
       dialog: false,
       drawer: null,
       items: [
-        { icon: 'mdi-account-card-details', text: 'Estudiantes' },        
-        { icon: 'mdi-clipboard-text', text: 'Inscripciones' },
-        { icon: 'mdi-teach', text: 'Tutores' },
-        { icon: 'mdi-folder-multiple', text: 'Cursos' },
-        { icon: 'mdi-factory', text: 'Empresas' },        
-        { icon: 'mdi-account-circle', text: 'Mi cuenta' },        
-        { icon: 'mdi-contacts', text: 'Usuarios' },
-        { icon: 'mdi-settings', text: 'Configuraciones' },
-        { icon: 'mdi-exit-to-app', text: 'Salir', click_salir:'alerta' },
+        { icon: 'mdi-account-card-details', text: 'Estudiantes', menu: 1},        
+        { icon: 'mdi-clipboard-text', text: 'Inscripciones' , menu: 2},
+        { icon: 'mdi-teach', text: 'Tutores' , menu: 3},
+        { icon: 'mdi-folder-multiple', text: 'Cursos' , menu: 4},
+        { icon: 'mdi-factory', text: 'Empresas' , menu: 1},        
+        { icon: 'mdi-account-circle', text: 'Mi cuenta' , menu: 5},        
+        { icon: 'mdi-contacts', text: 'Usuarios' , menu: 6},
+        { icon: 'mdi-settings', text: 'Configuraciones' , menu: 7},
+        { icon: 'mdi-exit-to-app', text: 'Salir', click_salir:'alerta'},
       ],
     }),
     methods: {

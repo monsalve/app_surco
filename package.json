@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "vuetify": "^2.2.23",
-        "vuetify-loader": "^1.4.3"
+        "vuetify-loader": "^1.4.3",
+        "vuex": "^3.3.0"
     }
 }
